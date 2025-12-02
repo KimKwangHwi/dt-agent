@@ -1,0 +1,1086 @@
+{
+  "/machine/cncModel": {
+    "설명": "해당 장비에 탑재된 NC의 모델명.",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/numberOfChannels": {
+    "설명": "장비에서 사용 가능한 채널(계통)의 개수.",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/cncVendor": {
+    "설명": "NC 제조사 코드 (1: FANUC, 2: SIEMENS, 3: CSCAM, 4: MITSUBISHI, 5: KCNC).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/ncLinkState": {
+    "설명": "NC와의 통신 연결 상태.",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/currentAccessLevel": {
+    "설명": "프로그램/디렉토리 접근에 대한 사용 권한 수준  (SIEMENS 전용, 1:제조자, 2:서비스, 3:사용자, 4: 프로그래머(키 스위치 3), 5: 공인 전문가(키 스위치2), 6:숙련된 전문가(키 스위치1) 7:준 숙련 전문가(키 스위치 0))",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/basicLengthUnit": {
+    "설명": "장비가 사용하는 기본 길이 단위 (0: Metric, 1: Inches, 4: user Define).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/machinePowerOnTime": {
+    "설명": "장비의 전원이 켜진 시간 (단위: 분).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/currentCncTime": {
+    "설명": "장비에 설정된 현재 시각 (형식: yyyy-MM-ddTHH:mm:ss).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/machineType": {
+    "설명": "장비의 타입 (0: 알 수 없음, 1: Milling, 2: Lathe 등).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/ncMemory/totalCapacity": {
+    "설명": "NC 메모리의 전체 용량 (단위: byte).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/ncMemory/usedCapacity": {
+    "설명": "사용 중인 NC 메모리 용량 (단위: byte).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/ncMemory/freeCapacity": {
+    "설명": "NC 메모리의 남은 용량 (단위: byte).",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/ncMemory/rootPath": {
+    "설명": "NC 메모리의 기본(루트) 경로.",
+    "required_params": "machine=i (i번째 장비)"
+  },
+  "/machine/channel/channelEnabled": {
+    "설명": "해당 채널의 활성화 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/toolAreaNumber": {
+    "설명": "해당 채널에서 사용 가능한 공구 영역의 식별 번호. 단계통 장비의 경우 디폴트로 1. FANUC에서는 공구 영역과 계통이 동일하기 때문에 channel과 toolArea가 같은 개념으로 사용. SIEMENS의 공구 영역의 개수는 계통 수와 동등하며, 공구 영역과 계통 간 1:다 관계가 성립. 하나의 공구 영역은 여러 개의 계통에 의해 참조될 수 있지만, 하나의 계통이 여러 개의 공구 영역을 참조하는 것은 불가능",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/numberOfAxes": {
+    "설명": "해당 채널에서 사용 가능한 축의 개수.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/numberOfSpindles": {
+    "설명": "해당 채널에서 사용 가능한 스핀들의 개수.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/alarmStatus": {
+    "설명": "채널의 알람 상태 (0: No alarm, 1: Alarm, 2: alarm without stop, 3: alarm with stop, 4: battery low, 5: FAN, 6: PS Warning, 7: FSSB warning, 8: Insulate warning, 9: Encoder warning, 10: PMC alarm 등).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/numberOfAlarms": {
+    "설명": "해당 채널에서 발생한 알람의 총 개수.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/operateMode": {
+    "설명": "공작기계의 운전 모드 (0: JOG, 1: MDI, 2: MEMORY(AUTO), 3: ZRN, 4: MPG, 5: ****, 6: EDIT, 7: HANDLE, 8: Teach in JOG, 9: Teach in HANDLE, 10: INC·feed, 11: REFERENCE, 12: REMOTE, 13: JOG-REPOS, 14: MDI-REF.POINT, 15: MDI-TEACH IN, 16: MDI-TECH IN-REF.POINT, 17: AUTO-TECH IN-REF.POINT, 18: STEP, 19: RAPID, 20: TAPE, 21: AUTO-TEACH IN-JOG, 22: JOG-REF 등).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/numberOfWorkOffsets": {
+    "설명": "사용 가능한 공작물 좌표계의 개수.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/ncState": {
+    "설명": "CNC의 작동 상태 (0: **** (=reset), 1: Stop, 2: Hold, 3: Start (=Active) (=Run), 4: MSTR, 5: Interrupted, 6: Pause 등).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/motionStatus": {
+    "설명": "장비의 현재 모션 상태 (0: ***, 1: Motion, 2: Dwell, 3: Wait 등).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/emergencyStatus": {
+    "설명": "비상 정지(Emergency) 상태 여부 (0: Not emergency, 1: Emergency, 2: Reset, 3: Wait).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/axis/machinePosition": {
+    "설명": "기계 좌표계 기준 현재 위치.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/workPosition": {
+    "설명": "공작물 좌표계 기준 현재 위치.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/distanceToGo": {
+    "설명": "지령 위치까지 남은 이동 거리.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/relativePosition": {
+    "설명": "상대 좌표계 기준 현재 위치.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisName": {
+    "설명": "절대 좌표계의 축 이름.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/relativeAxisName": {
+    "설명": "상대 좌표계의 축 이름 (FANUC 전용).",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisLoad": {
+    "설명": "축에 걸리는 부하.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisFeed": {
+    "설명": "현재 축의 이송 속도.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisLimitPlus": {
+    "설명": "'+' 방향 최대 이동 한계값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisLimitMinus": {
+    "설명": "'-' 방향 최대 이동 한계값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/workAreaLimitPlus": {
+    "설명": "작업 금지 영역 '+' 방향 한계값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/workAreaLimitMinus": {
+    "설명": "작업 금지 영역 '-' 방향 한계값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/workAreaLimitPlusEnabled": {
+    "설명": "작업 금지 영역 '+' 방향 활성화 여부.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/workAreaLimitMinusEnabled": {
+    "설명": "작업 금지 영역 '-' 방향 활성화 여부.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisEnabled": {
+    "설명": "해당 축의 사용 가능 여부.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/interlockEnabled": {
+    "설명": "해당 축의 인터락 상태 여부.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/constantSurfaceSpeedControlEnabled": {
+    "설명": "주속 일정 제어(CSS) 활성화 여부.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisCurrent": {
+    "설명": "해당 축의 전류 정보.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/machineOrigin": {
+    "설명": "기계 원점 좌표값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisTemperature": {
+    "설명": "해당 축의 온도 정보.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisPower/actualPowerConsumption": {
+    "설명": "실 소비 전력의 적산값 (소비전력 - 회생전력).",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisPower/powerConsumption": {
+    "설명": "소비 전력의 적산값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/axis/axisPower/regeneratedPower": {
+    "설명": "회생 전력의 적산값.",
+    "required_params":"machine=i (i번째 장비), channel=j (j번째 채널), axis=k (k번째 축)"
+  },
+  "/machine/channel/spindle/spindleLoad": {
+    "설명": "스핀들에 걸리는 부하.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindleOverride": {
+    "설명": "스핀들 속도 오버라이드 비율.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindleLimit": {
+    "설명": "최대 회전 속도 한계값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindleEnabled": {
+    "설명": "해당 스핀들의 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindleCurrent": {
+    "설명": "해당 스핀들의 전류 정보.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindleTemperature": {
+    "설명": "해당 스핀들의 온도 정보.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/rpm/commandedSpeed": {
+    "설명": "지령된 스핀들 회전 속도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/rpm/actualSpeed": {
+    "설명": "실제 측정된 스핀들 회전 속도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/rpm/speedUnit": {
+    "설명": "속도 단위 (0: mm/min, 1: inch/min, 2: rpm(rev/min), 3: mm/rev, 4: inch/rev 등).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindlePower/actualPowerConsumption": {
+    "설명": "실 소비 전력의 적산값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindlePower/powerConsumption": {
+    "설명": "소비 전력의 적산값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/spindle/spindlePower/regeneratedPower": {
+    "설명": "회생 전력의 적산값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), spindle=k (k번째 스핀들)"
+  },
+  "/machine/channel/feed/feedOverride": {
+    "설명": "가공 이송 속도 오버라이드 비율.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/feed/rapidOverride": {
+    "설명": "급속 이송 속도 오버라이드 비율.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/feed/feedRate/commandedSpeed": {
+    "설명": "지령된 이송 속도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/feed/feedRate/actualSpeed": {
+    "설명": "실제 측정된 이송 속도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/feed/feedRate/speedUnit": {
+    "설명": "속도 단위 (0: mm/min, 1: inch/min, 2: rpm(rev/min), 3: mm/rev, 4: inch/rev 등).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/workStatus/workCounter/currentWorkCounter": {
+    "설명": "현재까지 가공한 수량.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/workStatus/workCounter/targetWorkCounter": {
+    "설명": "목표 가공 수량.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/workStatus/workCounter/totalWorkCounter": {
+    "설명": "총 가공 수량.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/workStatus/machiningTime/processingMachiningTime": {
+    "설명": "현재 가공이 진행된 시간 (단위: 초).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/workStatus/machiningTime/estimatedMachiningTime": {
+    "설명": "예상 남은 가공 완료 시간 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/workStatus/machiningTime/machineOperationTime": {
+    "설명": "자동 운전 모드에서의 총 운전 시간 (단위: 초).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/workStatus/machiningTime/actualCuttingTime": {
+    "설명": "실제 총 절삭 시간 (단위: 초).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workStatus=k (k번째 작업물)"
+  },
+  "/machine/channel/activeTool/locationNumber": {
+    "설명": "공구가 매거진에 탑재된 위치 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolName": {
+    "설명": "공구 이름.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolNumber": {
+    "설명": "공구 식별 번호 (T 코드).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/numberOfEdges": {
+    "설명": "공구 날의 총 개수.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEnabled": {
+    "설명": "공구 영역 등록 및 매거진 탑재 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/magazineNumber": {
+    "설명": "공구가 탑재된 매거진 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/sisterToolNumber": {
+    "설명": "할당된 대체 공구 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolLifeUnit": {
+    "설명": "공구 수명 측정 단위 기준.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolGroupNumber": {
+    "설명": "공구가 참조된 공구 그룹 번호 리스트.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolUseOrderNumber": {
+    "설명": "그룹 내 공구 사용 순서 (FANUC 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolStatus": {
+    "설명": "공구의 사용 상태.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/edgeNumber": {
+    "설명": "공구 날 식별 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/toolType": {
+    "설명": "공구 유형.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/lengthOffsetNumber": {
+    "설명": "공구 길이 보정 식별 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/geoLengthOffset": {
+    "설명": "공구 길이 X 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/wearLengthOffset": {
+    "설명": "공구 길이 X 마모 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/radiusOffsetNumber": {
+    "설명": "공구 반경 보정 식별 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/geoRadiusOffset": {
+    "설명": "공구 반경 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/wearRadiusOffset": {
+    "설명": "공구 반경 마모 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/edgeEnabled": {
+    "설명": "공구 날 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/geoLengthOffsetZ": {
+    "설명": "공구 길이 Z 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/wearLengthOffsetZ": {
+    "설명": "공구 길이 Z 마모 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/geoLengthOffsetY": {
+    "설명": "공구 길이 Y 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/wearLengthOffsetY": {
+    "설명": "공구 길이 Y 마모 보정값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/geoOffsetNumber": {
+    "설명": "길이 X,Z, 반경의 식별 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/wearOffsetNumber": {
+    "설명": "길이 X,Z, 반경 마모값의 식별 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/cuttingEdgePosition": {
+    "설명": "공구 인선 방향.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/tipAngle": {
+    "설명": "공구의 팁 각도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/holderAngle": {
+    "설명": "공구 홀더 각도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/insertAngle": {
+    "설명": "공구 인서트 각도.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/insertWidth": {
+    "설명": "인선 너비 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/insertLength": {
+    "설명": "인선 길이 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/referenceDirectionHolderAngle": {
+    "설명": "홀더 각도 참조 방향 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/directionOfSpindleRotation": {
+    "설명": "스핀들 회전 방향 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/numberOfTeeth": {
+    "설명": "공구 날 개수 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/toolLife/maxToolLife": {
+    "설명": "최대 공구 수명.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/toolLife/restToolLife": {
+    "설명": "잔여 공구 수명.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/toolLife/toolLifeCount": {
+    "설명": "현재 공구 사용량.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/activeTool/toolEdge/toolLife/toolLifeAlarm": {
+    "설명": "공구 수명 도달 경고 설정값 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/sequenceNumber": {
+    "설명": "현재 실행 중인 시퀀스 번호(N 코드).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentBlockCounter": {
+    "설명": "실행 중인 블록 카운터.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/lastBlock": {
+    "설명": "이전 블록 정보.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentBlock": {
+    "설명": "현재 실행 중인 프로그램 블록 내용.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/nextBlock": {
+    "설명": "다음 블록 정보.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/activePartProgram": {
+    "설명": "실행 중인 프로그램 블록 정보(최대 200자).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/programMode": {
+    "설명": "프로그램 실행 모드 (0: **** (reset), 1: Stop, 2: Hold, 3: Start (Active) (Run), 4: MSTR, 5: Interrupted, 6: Pause, 7: Waiting).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentWorkOffsetIndex": {
+    "설명": "현재 공작물 좌표계의 G 코드 인덱스. Fanuc -> 1: G54, 2: G55, 3: G56, 4: G57, 5: G58, 6: G59, 7: G54.1 P1(확장 좌표계 시작), ... ,  n: G54. P(n-6), ..., 306: G54.1 P300 / SIEMENS -> 0: G500, 1: G54, 2: G55, 3: G56, 4: G57, 5: G505, 6: G506, ..., n: G(500+n), 99: G599 / MITSUBISHI -> 1: G54, 2: G55, 3: G56, 4: G57, 5: G58, 6: G59, 7: G54.1 / KCNC -> 1: G54, 2: G55, 3: G56, 4: G57, 5: G58, 6: G59.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentWorkOffsetCode": {
+    "설명": "현재 공작물 좌표계의 G 코드 문자열.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentDepthLevel": {
+    "설명": "현재 프로그램의 레벨 (메인, 서브루틴 등). MITSUBISHI는 0~8 / SIEMENS -> 1: Main program, 2: 1st subroutine level, 3: 2nd subroutine level, 4: 3rd subroutine level, 5: 4th subroutine level, 6: 5th subroutine level, 7: 6th subroutine level, 8: 7th subroutine level, 9: 1st asynchronous subroutine level, 10: 2nd asynchronous subroutine level, 11: 3rd asynchronous subroutine level, 12: 4th asynchronous subroutine level",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/modal/modalIndex": {
+    "설명": "G 코드 인덱스.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), modalIndex=k (k번째 G코드 인덱스)"
+  },
+  "/machine/channel/currentProgram/modal/modalCode": {
+    "설명": "G 코드 문자열.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), modalCode=k (k번째 G코드 인덱스)"
+  },
+  "/machine/channel/currentProgram/overallBlock/blockCounter": {
+    "설명": "블록 카운터.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), overallBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/overallBlock/programName": {
+    "설명": "프로그램 이름.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), overallBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/interruptBlock/depthLevel": {
+    "설명": "중단점 블록의 프로그램 레벨.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), interruptBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/interruptBlock/blockCounter": {
+    "설명": "중단점 블록의 카운터.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), interruptBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/interruptBlock/programName": {
+    "설명": "중단점 블록의 프로그램 이름.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), interruptBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/interruptBlock/blockData": {
+    "설명": "중단점 블록 데이터.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), interruptBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/interruptBlock/searchType": {
+    "설명": "중단점 검색 유형.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), interruptBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/interruptBlock/mainProgramName": {
+    "설명": "중단점의 메인 프로그램 이름.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), interruptBlock=k (k번째 프로그램 레벨)"
+  },
+  "/machine/channel/currentProgram/currentTotalWorkOffset/workOffsetIndex": {
+    "설명": "G 코드 인덱스.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentTotalWorkOffset/workOffsetValue": {
+    "설명": "축별 총 오프셋 값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), workOffsetValue=k (k번째 축)"
+  },
+  "/machine/channel/currentProgram/currentTotalWorkOffset/workOffsetRotation": {
+    "설명": "축별 총 회전 오프셋 값. ",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffsetRotation (k번째 축)"
+  },
+  "/machine/channel/currentProgram/currentTotalWorkOffset/workOffsetScalingFactor": {
+    "설명": "축별 총 스케일링 값. ",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffsetScalingFactor=k (k번째 축)"
+  },
+  "/machine/channel/currentProgram/currentTotalWorkOffset/workOffsetMirroringEnabled": {
+    "설명": "축별 미러링 활성화 여부. ",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffsetMirroringEnabled=k (k번째 축)"
+  },
+  "/machine/channel/currentProgram/currentFile/programName": {
+    "설명": "파일명.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentFile/programPath": {
+    "설명": "파일 경로.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentFile/programSize": {
+    "설명": "파일 크기 (byte).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentFile/programDate": {
+    "설명": "파일 생성 날짜.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/currentFile/programNameWithPath": {
+    "설명": "경로를 포함한 전체 파일명.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/mainFile/programName": {
+    "설명": "파일명.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/mainFile/programPath": {
+    "설명": "파일 경로.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/mainFile/programSize": {
+    "설명": "파일 크기 (byte).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/mainFile/programDate": {
+    "설명": "파일 생성 날짜.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/mainFile/programNameWithPath": {
+    "설명": "경로를 포함한 전체 파일명.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/controlOption/singleBlock": {
+    "설명": "싱글 블록 실행 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/controlOption/dryRun": {
+    "설명": "드라이 런 실행 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/controlOption/optionalStop": {
+    "설명": "옵셔널 스톱(M01) 활성화 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/currentProgram/controlOption/machineLock": {
+    "설명": "머신 락 활성화 여부.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널)"
+  },
+  "/machine/channel/workOffset/workOffsetValue": {
+    "설명": "축별 오프셋 값. ",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffset=k (k번째 G코드 인덱스), workOffsetValue=l(l번째 축)"
+  },
+  "/machine/channel/workOffset/workOffsetRotation": {
+    "설명": "축별 오프셋 회전량 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffset=k (k번째 G코드 인덱스), workOffsetRotation=l(l번째 축)"
+  },
+  "/machine/channel/workOffset/workOffsetScalingFactor": {
+    "설명": "축별 오프셋 확장량 (SIEMENS 전용). ",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffset=k (k번째 G코드 인덱스), workOffsetScalingFactor=l(l번째 축)"
+  },
+  "/machine/channel/workOffset/workOffsetMirroringEnabled": {
+    "설명": "축별 미러링 활성화 여부 (SIEMENS 전용). ",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffset=k (k번째 G코드 인덱스), workOffsetMirroringEnabled=l(l번째 축)"
+  },
+  "/machine/channel/workOffset/workOffsetFine": {
+    "설명": "축별 오프셋 Fine 값 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) workOffset=k (k번째 G코드 인덱스), workOffsetFine=l(l번째 축)"
+  },
+  "/machine/channel/alarm/alarmText": {
+    "설명": "알람 상세 내용.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), alarm=k (k번째 알람)"
+  },
+  "/machine/channel/alarm": {
+    "설명": "해당 계통에서 발생한 모든 알람에 대한 Text, Category, Number, raisedTimeStamp를 리스트로 나타내는 문자열(JSON 형태) 속성",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), alarm=k (k번째 알람)"
+  },
+  "/machine/channel/alarm/alarmCategory": {
+    "설명": "알람 유형.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), alarm=k (k번째 알람)"
+  },
+  "/machine/channel/alarm/alarmNumber": {
+    "설명": "알람 번호.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), alarm=k (k번째 알람)"
+  },
+  "/machine/channel/alarm/raisedTimeStamp": {
+    "설명": "알람 발생 시각.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널), alarm=k (k번째 알람)"
+  },
+  "/machine/channel/variable/userVariable": {
+    "설명": "사용자 변수 값.",
+    "required_params": "machine=i (i번째 장비), channel=j (j번째 채널) variable=k (k번째 사용자 변수)"
+  },
+  "/machine/pic/memory/rbitBlock": {
+    "설명": "읽기 전용 Bit 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), rbitBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/bitBlock": {
+    "설명": "읽기/쓰기 가능 Bit 데이터 블록.",
+    "required_params": "machine=i (i번째 장비), bitBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/rbyteBlock": {
+    "설명": "읽기 전용 Byte 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), rbyteBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/byteBlock": {
+    "설명": "읽기/쓰기 가능 Byte 데이터 블록.",
+    "required_params": "machine=i (i번째 장비), byteBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/rwordBlock": {
+    "설명": "읽기 전용 Word(2byte) 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), rwordBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/wordBlock": {
+    "설명": "읽기/쓰기 가능 Word(2byte) 데이터 블록.",
+    "required_params": "machine=i (i번째 장비), wordBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/rdwordBlock": {
+    "설명": "읽기 전용 DWord(4byte) 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), rdwordBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/dwordBlock": {
+    "설명": "읽기/쓰기 가능 DWord(4byte) 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), dwordBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/rqwordBlock": {
+    "설명": "읽기 전용 QWord(8byte) 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), rqwordBlock=j(j번째 주소)"
+  },
+  "/machine/pic/memory/qwordBlock": {
+    "설명": "읽기/쓰기 가능 QWord(8byte) 데이터 블록. ",
+    "required_params": "machine=i (i번째 장비), qwordBlock=j(j번째 주소)"
+  },
+  "/machine/toolArea/toolAreaEnabled": {
+    "description": "해당 공구 영역 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역)"
+  },
+  "/machine/toolArea/numberOfMagazines": {
+    "description": "사용 가능한 매거진 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역)"
+  },
+  "/machine/toolArea/numberOfRegisteredTools": {
+    "description": "공구 영역에 등록된 총 공구 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역)"
+  },
+  "/machine/toolArea/numberOfLoadedTools": {
+    "description": "매거진에 탑재된 총 공구 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역)"
+  },
+  "/machine/toolArea/numberOfToolGroups": {
+    "description": "등록된 공구 그룹의 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역)"
+  },
+  "/machine/toolArea/numberOfToolOffsets": {
+    "description": "등록된 공구 오프셋의 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역)"
+  },
+  "/machine/toolArea/magazine/magazineEnabled": {
+    "description": "해당 매거진 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), magazine=k (k번째 매거진)"
+  },
+  "/machine/toolArea/magazine/magazineName": {
+    "description": "매거진 이름 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), magazine=k (k번째 매거진)"
+  },
+  "/machine/toolArea/magazine/numberOfRealLocations": {
+    "description": "매거진의 물리적 포트(위치) 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), magazine=k (k번째 매거진)"
+  },
+  "/machine/toolArea/magazine/magazinePhysicalNumber": {
+    "description": "매거진의 물리적 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), magazine=k (k번째 매거진)"
+  },
+  "/machine/toolArea/magazine/numberOfLoadedTools": {
+    "description": "해당 매거진에 탑재된 공구 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), magazine=k (k번째 매거진)"
+  },
+  "/machine/toolArea/tools/locationNumber": {
+    "description": "공구가 매거진에 탑재된 위치 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/toolName": {
+    "description": "공구 이름.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/numberOfEdges": {
+    "description": "공구 날의 총 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/toolEnabled": {
+    "description": "공구 영역 등록 및 매거진 탑재 여부. (공구영역/매거진 -> 0: 미등록/미탑재, 1: 등록/미탑재, 2: 등록/탑재)",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolGroupNumber=l (l번째 공구그룹)"
+  },
+  "/machine/toolArea/tools/magazineNumber": {
+    "description": "공구가 탑재된 매거진 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/sisterToolNumber": {
+    "description": "할당된 대체 공구 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/toolLifeUnit": {
+    "description": "공구 수명 측정 단위 기준. 0: no unit, 1: time, 2: count. 4: wear, 5: count(장착), 6: count(사용), 8: offset",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호) toolLifeUnit=l (l번째 공구그룹)"
+  },
+  "/machine/toolArea/tools/toolGroupNumber": {
+    "description": "공구가 참조된 공구 그룹 번호 리스트.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/toolUseOrderNumber": {
+    "description": "그룹 내 공구 사용 순서 (FANUC 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호)"
+  },
+  "/machine/toolArea/tools/toolStatus": {
+    "description": "공구의 사용 상태. 0: Not enabled, 1: Active tool, 2: Enabled, 4: Disabled, 8: Measured, 9: 미사용 공구, 10: 정상 수명 공구, 11: Tool data is available (using), 12: This tool is registered (available), 13: This tool has expired, 14: This tool was skipped, 16: Prewarning limit reached, 32: Tool being changed, 64: Fixed location coded, 128: Tool was in use, 256: Tool is in the buffer magazine with transport order, 512: Ignore disabled state of tool, 1024: Tool must be unloaded, 2048: Tool must be loaded, 4096: Tool is a master tool, 8192: Reserved, 16384: Tool is marked for 1:1 exchange, 32768: Tool is being used as a manual tool / SIEMENS는 Tool Status의 값이 합쳐져서 출력됩니다. 예를 들어 131이 출력되면 1 + 2 + 128 = 131 (1:Active tool, 2:Enabled, 128:Tool was in use) 3가지 상태가 적용된 것입니다.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호) toolStatus=l (l번째 공구그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/toolType": {
+    "description": "공구 유형. 0: Not defined, 10: General-purpose tool, 11: Threading tool (Siemens에서는 540), 12: Grooving tool, 13: Round-nose tool, 14: Point nose straight tool, 15: Versatile tool, 20: Drill, 21: Counter sink tool, 22: Flat end mill, 23: Ball end mill, 24: Tap (Siemens에서는 240), 25: Reamer, 26: Boring tool, 27: Face mill, 50: Radius end mill, 51: 면취, 52: 선삭, 53: 홈삽입, 54: 나사절삭, 55: 선삭드릴, 56: 선삭탭, 100: Milling tool, 110: Ball nose end mill, 111: Conical ball end, 120: End mill, 121: End mill corner rounding, 130: Angle head cutter, 131: Corner rounding angle head cutter, 140: Facing tool, 145: Thread cutter, 150: Side mill, 151: Saw, 155: Bevelled cutter, 156: Bevelled cutter corner, 157: Tap. die-sink. cutter, 160: Drill&thread cut., 200: Twist drill, 205: Solid drill, 210: Boring bar, 220: Center drill, 230: Countersink, 231: Counterbore, 240: Tap, 241: Fine tap, 242: Tap, Whitworth, 250: Reamer, 500: Roughing tool, 510: Finishing tool, 520: Plunge cutter, 530: Cutting tool, 540: Threading tool, 550: Button tool, 560: Rotary drill, 580: 3D turning probe, 585: Calibrating tool, 700: Slotting saw, 710: 3D probe, 711: Edge finder, 712: Mono probe, 713: L probe, 714: Star probe, 725: Calibrating tool, 730: Stop, 731: Mandrel, 732: Steady rest, 900: Auxiliary tools",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/lengthOffsetNumber": {
+    "description": "공구 길이 보정 식별 번호. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), lengthOffsetNumber=m(m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/edgeEnabled": {
+    "description": "공구 날 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/tipAngle": {
+    "description": "공구의 팁 각도.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/holderAngle": {
+    "description": "공구 홀더 각도.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/insertAngle": {
+    "description": "공구 인서트 각도.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/insertWidth": {
+    "description": "인선 너비 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/insertLength": {
+    "description": "인선 길이 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/referenceDirectionHolderAngle": {
+    "description": "홀더 각도 참조 방향 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/directionOfSpindleRotation": {
+    "description": "스핀들 회전 방향 (SIEMENS 전용). 0: 회전 없음, 1: 시계방향, 2: 반시계방향.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/tools/toolEdge/numberOfTeeth": {
+    "description": "공구 날 개수 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/locationNumber": {
+    "description": "공구가 매거진에 탑재된 위치 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/toolName": {
+    "description": "공구 이름.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/numberOfEdges": {
+    "description": "공구 날의 총 개수.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/toolEnabled": {
+    "description": "공구 영역 등록 및 매거진 탑재 여부.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolGroupNumber=l (l번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/magazineNumber": {
+    "description": "공구가 탑재된 매거진 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/sisterToolNumber": {
+    "description": "할당된 대체 공구 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/toolLifeUnit": {
+    "description": "공구 수명 측정 단위 기준.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolLifeUnit=l (l번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolGroupNumber": {
+    "description": "공구가 참조된 공구 그룹 번호 리스트.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/toolUseOrderNumber": {
+    "description": "그룹 내 공구 사용 순서 (FANUC 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호)"
+  },
+  "/machine/toolArea/registerTools/toolStatus": {
+    "description": "공구의 사용 상태.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolStatus=l (l번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/geoLengthOffset": {
+    "description": "공구 길이 X 보정값.",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), geoLengthOffset=m : m번째 공구 그룹"
+  },
+  "/machine/toolArea/tools/toolEdge/wearLengthOffset": {
+    "description": "공구 길이 X 마모 보정값.",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), wearLengthOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/radiusOffsetNumber": {
+    "description": "공구 반경 보정 식별 번호.",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), radiusOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/geoRadiusOffset": {
+    "description": "공구 반경 보정값. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), geoRadiusOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/wearRadiusOffset": {
+    "description": "공구 반경 마모 보정값.",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), wearRadiusOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/geoLengthOffsetZ": {
+    "description": "공구 길이 Z 보정값. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), geoLengthOffsetZ=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/wearLengthOffsetZ": {
+    "description": "공구 길이 Z 마모 보정값. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), wearLengthOffsetZ=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/geoLengthOffsetY": {
+    "description": "공구 길이 Y 보정값. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), geoLengthOffsetY=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/wearLengthOffsetY": {
+    "description": "공구 길이 Y 마모 보정값. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), wearLengthOffsetY=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/geoOffsetNumber": {
+    "description": "길이 X,Z, 반경의 식별 번호.",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), geoOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/wearOffsetNumber": {
+    "description": "길이 X,Z, 반경 마모값의 식별 번호.",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), wearOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/cuttingEdgePosition": {
+    "description": "공구 인선 방향. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), cuttingEdgePosition=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/toolLife/maxToolLife": {
+    "description": "최대 공구 수명. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), maxToolLife=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/toolLife/restToolLife": {
+    "description": "잔여 공구 수명. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), restToolLife=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/toolLife/toolLifeCount": {
+    "description": "현재 공구 사용량. ",
+    "required_params":  "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날), toolLifeCount=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/tools/toolEdge/toolLife/toolLifeAlarm": {
+    "description": "공구 수명 도달 경고 설정값.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), tools=k (k번째 지정된 공구 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/toolType": {
+    "description": "공구 유형.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/lengthOffsetNumber": {
+    "description": "공구 길이 보정 식별 번호. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  lengthOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/geoLengthOffset": {
+    "description": "공구 길이 X 보정값.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  geoLengthOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/wearLengthOffset": {
+    "description": "공구 길이 X 마모 보정값.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  wearLengthOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/radiusOffsetNumber": {
+    "description": "공구 반경 보정 식별 번호. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  radiusOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/geoRadiusOffset": {
+    "description": "공구 반경 보정값. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  geoRadiusOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/wearRadiusOffset": {
+    "description": "공구 반경 마모 보정값. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  wearRadiusOffset=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/edgeEnabled": {
+    "description": "공구 날 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/geoLengthOffsetZ": {
+    "description": "공구 길이 Z 보정값. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  geoLengthOffsetZ=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/wearLengthOffsetZ": {
+    "description": "공구 길이 Z 마모 보정값. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  wearLengthOffsetZ=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/geoLengthOffsetY": {
+    "description": "공구 길이 Y 보정값. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  geoLengthOffsetY=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/wearLengthOffsetY": {
+    "description": "공구 길이 Y 마모 보정값. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  wearLengthOffsetY=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/geoOffsetNumber": {
+    "description": "길이 X,Z, 반경의 식별 번호. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  geoOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/wearOffsetNumber": {
+    "description": "길이 X,Z, 반경 마모값의 식별 번호.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  wearOffsetNumber=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/cuttingEdgePosition": {
+    "description": "공구 인선 방향. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  cuttingEdgePosition=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/tipAngle": {
+    "description": "공구의 팁 각도.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/holderAngle": {
+    "description": "공구 홀더 각도.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/insertAngle": {
+    "description": "공구 인서트 각도.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/insertWidth": {
+    "description": "인선 너비 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/insertLength": {
+    "description": "인선 길이 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/referenceDirectionHolderAngle": {
+    "description": "홀더 각도 참조 방향 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/directionOfSpindleRotation": {
+    "description": "스핀들 회전 방향 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/numberOfTeeth": {
+    "description": "공구 날 개수 (SIEMENS 전용).",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/toolLife/maxToolLife": {
+    "description": "최대 공구 수명. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  maxToolLife=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/toolLife/restToolLife": {
+    "description": "잔여 공구 수명. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  restToolLife=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/toolLife/toolLifeCount": {
+    "description": "현재 공구 사용량. ",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날),  toolLifeCount=m (m번째 공구 그룹)"
+  },
+  "/machine/toolArea/registerTools/toolEdge/toolLife/toolLifeAlarm": {
+    "description": "공구 수명 도달 경고 설정값.",
+    "required_params": "machine=i (i번째 장비), toolArea=j (j번째 공구영역), registerTools=k (k번째  NC에 설정된 순서에 따른 인덱스 번호), toolEdge=l (l번째 공구 날)"
+  },
+  "/machine/buffer/bufferEnabled": {
+    "설명": "해당 버퍼 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/numberOfStream": {
+    "설명": "해당 버퍼의 최대 스트림 개수.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/statusOfStream": {
+    "설명": "스트림 상태 (0: 설정 가능, 1: 수집 가능, 2: 수집 대기, 3: 수집 중, 4: 수집 대기 혹은 수집 중, 5: 수집 완료/종료, -1: CNC 연결 실패, -2: 설정값 적용 실패).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/modOfStream": {
+    "설명": "스트림 수집 모드 (0: 반복 수집, 1: 1회 수집).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/machineChannelOfStream": {
+    "설명": "스트림 수집 시 사용할 채널.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/periodOfStream": {
+    "설명": "1회 수집 기간 (단위: ms).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/triggerOfStream": {
+    "설명": "수집 시작 트리거 (0: 즉시, 1이상: 시퀀스 번호).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/frequencyOfStream": {
+    "설명": "모든 스트림에 공통으로 적용할 수집 주파수 (Hz) 1000 or 4000.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼)"
+  },
+  "/machine/buffer/stream/streamEnabled": {
+    "설명": "해당 스트림 사용 가능 여부.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/streamFrequency": {
+    "설명": "해당 스트림의 수집 주파수 (Hz). 1000 or 4000",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/streamCategory": {
+    "설명": "수집 대상 데이터 카테고리.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/streamSubcategory": {
+    "설명": "수집 대상 데이터 서브카테고리 (축/스핀들 번호 등).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/streamType": {
+    "설명": "수집 유형 (KCNC 전용). 0: bit, 1: resistor",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/streamStartBit": {
+    "설명": "수집 유형이 Bit일 때 Start Bit (KCNC 전용).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/streamEndBit": {
+    "설명": "수집 유형이 Bit일 때 End Bit (KCNC 전용).",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  },
+  "/machine/buffer/stream/value": {
+    "설명": "해당 스트림에서 마지막으로 수집된 데이터 값.",
+    "required_params": "machine=i (i번째 장비), buffer=j (j번째 버퍼), stream=k (k번째 스트림)"
+  }
+}
